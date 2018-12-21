@@ -3,6 +3,11 @@ package com.example.guilhermedeconto.viacep.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * @author Guilherme Dall'Agnol Deconto
+ * @author guilherme.deconto@operacao.rcadigital.com.br
+ * @since 14/12/2018
+ */
 public class Detail {
     @SerializedName("cep")
     @Expose
@@ -108,14 +113,14 @@ public class Detail {
     public String toString() {
         return
                 "cep: " + cep + '\n' +
-                "logradouro: " + logradouro + '\n' +
-                "complemento: " + complemento + '\n' +
-                "bairro: " + bairro + '\n' +
-                "localidade: " + localidade + '\n' +
-                "uf: " + uf + '\n' +
-                "unidade: " + unidade + '\n' +
-                "ibge: " + ibge + '\n' +
-                "gia='" + gia
+                        "logradouro: " + logradouro + '\n' +
+                        "complemento: " + complemento + '\n' +
+                        "bairro: " + bairro + '\n' +
+                        "localidade: " + localidade + '\n' +
+                        "uf: " + uf + '\n' +
+                        "unidade: " + unidade + '\n' +
+                        "ibge: " + ibge + '\n' +
+                        "gia='" + gia
                 ;
     }
 }

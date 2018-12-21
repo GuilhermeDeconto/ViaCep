@@ -1,9 +1,7 @@
 package com.example.guilhermedeconto.viacep.activity;
 
-import android.arch.lifecycle.ViewModel;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,11 +10,16 @@ import android.widget.Toast;
 import com.example.guilhermedeconto.viacep.R;
 import com.example.guilhermedeconto.viacep.model.Detail;
 
+/**
+ * @author Guilherme Dall'Agnol Deconto
+ * @author guilherme.deconto@operacao.rcadigital.com.br
+ * @since 14/12/2018
+ */
 public class MainActivity extends AppCompatActivity implements MainActivityInteraction {
     private TextView tvDetail;
     private Button btnSearch;
     private EditText etCep;
-    private  EditText etNum2;
+    private EditText etNum2;
     private MainActivityViewModel viewModel;
 
 
@@ -27,16 +30,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
 
         viewModel = new MainActivityViewModel(this);
 
-       // tvDetail = findViewById(R.id.tvDetail);
+        // tvDetail = findViewById(R.id.tvDetail);
         btnSearch = findViewById(R.id.button);
         etCep = findViewById(R.id.etNum1);
         etNum2 = findViewById(R.id.etNum2);
-
+        tvDetail = findViewById(R.id.textApi);
         btnSearch.setOnClickListener(v -> {
-            viewModel.getSum(Integer.parseInt(etCep.getText().toString()),Integer.parseInt(etNum2.getText().toString()));
-
+            viewModel.initService(etCep.getText().toString());
         });
-
     }
 
     @Override
@@ -47,10 +48,5 @@ public class MainActivity extends AppCompatActivity implements MainActivityInter
     @Override
     public void onError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onSucesso(Integer data) {
-        Toast.makeText(this, String.valueOf(data), Toast.LENGTH_SHORT).show();
     }
 }
